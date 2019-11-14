@@ -9,6 +9,13 @@ window.onload = async()=> {
        }
     })
     let responseJson= await response.json ()
+
+    document.querySelector("#productColumn").innerHTML = responseJson.map(product=> `
+    <div>
+        <img src="${product.imageUrl}" stlye= "width:100%"/>
+        <p>${product.name} - ${product.price}</p>
+    </div>
+    `).join("")
     console.log(responseJson)
 }
 
@@ -27,8 +34,4 @@ newProduct = async (product) => {
     })
 
     let responseJson= await response.json ()
-
-    // let newDiv = document.querySelector("#")
-    
-
 }
